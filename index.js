@@ -13,10 +13,10 @@ var sayilar = [45,856,12.5,63,0.02,154,2,54,78,61.7,654,26,12.5,63,969,152,32,31
 */
 
 //Örneğin çözümü:
-function KareninAlani(kenaruzunlugu){
-	return kenaruzunlugu*kenaruzunlugu;
-}
-
+	function KareninAlani(kenaruzunlugu){
+	return Math.pow(kenaruzunlugu,2);
+	}
+	console.log (KareninAlani(10))
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
 
@@ -24,15 +24,15 @@ function KareninAlani(kenaruzunlugu){
 /* 	GÖREV 1:  
 		- CemberinCevresi fonksiyonunu kullanarak aşağıdaki yönergeleri uygulayın:
 			1. CemberinCevresi fonksiyonu parametre olarak sadece çemberin yarıçapını alacaktır. 
-			2. Global değişken olarak verilmiş pi sayısı fonksiyon içinde kullanılacak (pi sayısı fonksiyonun parametresi olarak alınmayacaktır)
+			2. Global değişken olarak verilmiş pi sayisı fonksiyon içinde kullanılacak (pi sayisı fonksiyonun parametresi olarak alınmayacaktır)
 			3. Çemberin çevresi hesaplanacaktır (💡 İPUCU: Çemberin çevresi = 2 * pi * yarıçap)
 			4. Hesaplanan çemberin çevresi döndürülecektir.
 		*/
 
-function CemberinCevresi(/* kodlar buraya */){
-	/* kodlar buraya */
-}
-
+	function CemberinCevresi(yarıcap){
+	return 2 * pi * yarıcap
+	}
+	console.log (CemberinCevresi(12))
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -47,71 +47,101 @@ function CemberinCevresi(/* kodlar buraya */){
 			4. Hesaplanan çemberin alanı döndürülecektir.
 		*/
 		
-function CemberinAlani(/* kodlar buraya */){
-	/* kodlar buraya */
-}
-
+	function CemberinAlani(yarıCap, pi){
+	return pi * Math.pow(yarıCap,2)
+	}
+	console.log (CemberinAlani(12, pi))
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
 
 
 /* 	GÖREV 3:
-		- Sayfanın en üstünde global değişken olarak tanımlanmış bir sayilar dizisi bulunmaktadır. Bu dizi içinde 0 ile 1000 arasında rasgele oluşturulmuş tam sayılar ve ondalıklı sayılar bulunmaktadır. Bu diziyi kullanarak aşağıdakileri uygulayın:
-			3a. enbuyuk ve enkucuk isminde 2 adet değişken tanımlayın ve sayilar dizisindeki en küçük sayı ile en büyük sayıyı bu değişkenlere atayın. (for döngüsü kullanın)
-			3b. `ucetambolunenler` adında bir dizi tanımlayın ve bu diziye sayilar dizisindeki 3'ün tam katı olan sayıları atayın (.forEach metodunu kullanın)
-			3c. `ucetambolunenler` dizisindeki sayıların toplamını .reduce metoduyla bulup, sonucu `ucebolunenlerintoplami` değişkenine yazdırın (.reduce metodunu kullanın)
-			3d. `besyuzdenkucuksayilar` adında bir dizi oluşturarak, sayilar dizisinin içindeki 500'den küçük sayıları bu diziye atayın (.filter metodunu kullanın)
-			3e. besyuzdenkucuksayilar dizisindeki sayıları küçükten büyüğe sıralayıp `siralisayilar` adındaki bir diziye aktarın (.sort metodunu kullanın)
-			3f. `tekraredensayilar` adında bir dizi oluşturun. sayilar dizisi içerisindeki bazı sayılar birden fazla kere yazılmış. sayilar dizisi içerisinde birden fazla kez yazılmış sayıları tespit ederek kaç kere tekrar edildiğini belirten bir string oluşturulup `tekraredensayilar` dizisine aktarılmasını istiyoruz. Örnek string: "{sayı} sayısı {tekrarSayisi} kere tekrar edilmiştir"
-			ÖRNEK: sayilar dizisi içerisinde 45 sayısı 3 kere yazılmış. "45 sayısı 3 tekrar edilmiştir" stringini `tekraredensayilar` dizisine aktaracağız.
-			💡 İPUCU: Tekrar edilen sayıları ve kaç kere tekrar edildiğini kaydetmek için bir nesne tanımlamalısınız, bu görevi yapabilmek için en az 2 kere döngü yazmalısınız. Birinci döngüde hangi sayının kaç kere tekrar edildiğini tespit edip, 2. döngüde stringi oluşturup verilen diziye aktarmalısınız.
+		- Sayfanın en üstünde global değişken olarak tanımlanmış bir sayilar dizisi bulunmaktadır. Bu dizi içinde 0 ile 1000 arasında rasgele oluşturulmuş tam sayilar ve ondalıklı sayilar bulunmaktadır. Bu diziyi kullanarak aşağıdakileri uygulayın:
+			3a. enbuyuk ve enkucuk isminde 2 adet değişken tanımlayın ve sayilar dizisindeki en küçük sayi ile en büyük sayiyı bu değişkenlere atayın. (for döngüsü kullanın)
+			3b. `ucetambolunenler` adında bir dizi tanımlayın ve bu diziye sayilar dizisindeki 3'ün tam katı olan sayiları atayın (.forEach metodunu kullanın)
+			3c. `ucetambolunenler` dizisindeki sayiların toplamını .reduce metoduyla bulup, sonucu `ucebolunenlerintoplami` değişkenine yazdırın (.reduce metodunu kullanın)
+			3d. `besyuzdenkucuksayilar` adında bir dizi oluşturarak, sayilar dizisinin içindeki 500'den küçük sayiları bu diziye atayın (.filter metodunu kullanın)
+			3e. besyuzdenkucuksayilar dizisindeki sayiları küçükten büyüğe sıralayıp `siralisayilar` adındaki bir diziye aktarın (.sort metodunu kullanın)
+			3f. `` adında bir dizi oluşturun. sayilar dizisi içerisindeki bazı sayilar birden fazla kere yazılmış. sayilar dizisi içerisinde birden fazla kez yazılmış sayiları tespit ederek kaç kere tekrar edildiğini belirten bir string oluşturulup `` dizisine aktarılmasını istiyoruz. Örnek string: "{sayi} sayisı {tekrarSayisi} kere tekrar edilmiştir"
+			ÖRNEK: sayilar dizisi içerisinde 45 sayisı 3 kere yazılmış. "45 sayisı 3 tekrar edilmiştir" stringini `` dizisine aktaracağız.
+			💡 İPUCU: Tekrar edilen sayiları ve kaç kere tekrar edildiğini kaydetmek için bir nesne tanımlamalısınız, bu görevi yapabilmek için en az 2 kere döngü yazmalısınız. Birinci döngüde hangi sayinın kaç kere tekrar edildiğini tespit edip, 2. döngüde stringi oluşturup verilen diziye aktarmalısınız.
 	*/
 	
 	
-/*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
+/*  (oto test yok) sayilar dizisi içinde kaç adet sayi olduğunu konsola yazdırın */
 
 
 
-	var ucetambolunenler, enkucuk, enbuyuk, ucebolunenlerintoplami, besyuzdenkucuksayilar, siralisayilar, tekraredensayilar;
+	var ucetambolunenler, enkucuk, enbuyuk, ucebolunenlerintoplami, besyuzdenkucuksayilar, siralisayilar, tekraredensayilar ;
 	
 	//3a çözümü
 
-	/* kodlar buraya */
+	     var enbuyuk = sayilar[0]
+	     var enkucuk = sayilar[0]
+		for (let i=0; i<= sayilar.length; i++){
+			
+			if (sayilar[i] > enbuyuk)
+			enbuyuk = sayilar[i];
 	
+			if (sayilar[i] < enkucuk)
+			     enkucuk = sayilar[i];
+			
+		}
+		console.log(enbuyuk, enkucuk)
 	
 	
 	// 3b çözümü:
-
-	/* kodlar buraya */
+    ucetambolunenler = sayilar.filter(sayi =>{
+		return  sayi % 3==0
+	}
+		)
+	console.log (ucetambolunenler)
 		
-		
+	
 		
 	//3c çözümü:
-	
-	/* kodlar buraya */
-
-	
+	    
+	ucebolunenlerintoplami = ucetambolunenler.reduce((toplam,sayi) =>{
+		return toplam + sayi
+	})
+	console.log (ucebolunenlerintoplami)
+	 
 	
 	//3d çözümü
 	
-	/* kodlar buraya */
+	besyuzdenkucuksayilar = sayilar.filter(sayilar =>{
+		return sayilar <= 500
+	})
+	console.log(besyuzdenkucuksayilar)
 
 
 
 	//3e çözümü
 
-	/* kodlar buraya */
-	
+	siralisayilar = besyuzdenkucuksayilar.sort(function(a,b){
+		return a - b
+	})
+	console.log(siralisayilar)
 	
 	//3f çözümü
 	
-	/* kodlar buraya */
+	tekraredensayilar= [];
+	let depo= {};
+	sayilar.forEach(sayi =>{
+		if(sayi in depo){
+			depo[sayi]+=1
+		}
+		else {
+			depo[sayi] =1
+		}
+	})
+	for (let sayi in depo){
+		tekraredensayilar.push(`${sayi} sayısı ${depo[sayi]} kere tekrar edilmiştir`)
+	}
+	console.log(tekraredensayilar)
 
 
-
-
-	
 		
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
@@ -130,6 +160,6 @@ module.exports = {
 	ucebolunenlerintoplami,
 	besyuzdenkucuksayilar,
 	siralisayilar,
-	tekraredensayilar
+	
 }
 
